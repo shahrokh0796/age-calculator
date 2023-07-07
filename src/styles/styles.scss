@@ -1,0 +1,131 @@
+@font-face {
+    font-family: bold;
+    src: url("../assets/fonts/Poppins-Bold.ttf");
+}
+@font-face {
+    font-family: italic;
+    src: url("../assets/fonts/Poppins-BoldItalic.ttf");
+}
+@font-face {
+    font-family: regular;
+    src: url("../assets/fonts/Poppins-Regular.ttf");
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+* {
+  margin: 0;
+}
+
+html, body {
+    min-block-size: 100%;
+    block-size: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: regular;
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input {
+  font: inherit;
+}
+
+.main {
+    block-size: 100%;
+    background-color: hsl(0, 0%, 94%);
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.container {
+    max-inline-size: 34.375rem;
+    inline-size: 100%;
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.7rem;
+    border-radius: 1rem;
+    border-end-end-radius: 5rem;
+    position: relative;
+}
+
+.margin-left-right {
+    
+}
+
+.form {
+    display: flex;
+    max-width: 400px;
+    border: 1px solid black;
+}
+
+
+.fieldset {
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-family: bold;
+        font-size: 0.650rem;
+        margin-block-end: 0.100rem;
+        letter-spacing: 0.0500rem;
+        text-transform: uppercase;
+    }
+
+    input {
+        inline-size: 100%;
+        max-inline-size: 85px;
+        padding: 0.300rem 0.500rem;
+        font-family: bold;
+    }
+
+    small {font-size: 0.650rem; font-family:bold;}
+}
+
+.hr-line {
+    background-color: hsl(0, 0%, 86%);
+    inline-size: 100%;
+    block-size: 0.063rem;
+    margin-block-start: 2rem;
+    margin-block-end: 1.9rem;
+}
+
+
+.container-icon-arrow {
+    inline-size: 3.125rem;
+    block-size: 3.125rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: hsl(259, 100%, 65%);
+    padding: 0.800rem;
+    top: 7rem; right: 50%;
+    border: none;
+    cursor:pointer;
+}
+
+.container-output-age {
+    p {
+        color: hsl(0, 0%, 8%);
+        font-family: bold;
+        font-size: 3rem;
+        time {
+            color: hsl(259, 100%, 65%);
+        }
+    }
+}
+
+@media  screen and (min-width: 400px) {
+    .container-icon-arrow {
+        top: 6.8rem; right: 1.75rem;
+        cursor:pointer;
+    }
+}
