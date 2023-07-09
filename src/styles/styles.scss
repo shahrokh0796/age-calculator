@@ -121,6 +121,11 @@ input {
     cursor:pointer;
 }
 
+.error {
+    color: red;
+    border: 1px solid red;
+}
+
 .container-icon-arrow:hover {
     background-color: hsl(0, 0%, 8%);
 }
