@@ -5,7 +5,7 @@ const yearEl = document.querySelector("#year");
 const errorEl = document.querySelector("small");
 const ageBtn = document.querySelector(".ageBtn");
 
-const isRequired = (inputLength, amount) => inputLength.length < amount ? false: true;   
+const isRequired = (inputLength) => inputLength.length == "" ? false: true;   
 
 function displayError(message, element) {
     element.textContent = message;
@@ -18,18 +18,12 @@ function removeError(element) {
 
 
 function calculateAge(){
-    const date = new Date();
-
-    let nowD = date.getDay(), nowM = date.getMonth(),
-    nowY = date.getFullYear();
     let inputD = dayEl.value, inputM = monthEl.value,
     inputY = yearEl.value;
-
-    let personY = nowY - inputY, personM = nowM - inputM,
-    personD = nowD - inputD;
-
-    console.log(personD," <--personD", personM, " personM<--", personY, " <--");
-
+    const dOB = new Date(inputD,inputM,inputY).toLocaleDateString('en-GB');
+    if(!isRequired(inputD) || !isRequired(inputM) || !isRequired(inputY)) {
+        console.log("errororororororororororrrrr");
+    }
 }
 
 ageBtn.addEventListener("click", calculateAge);
