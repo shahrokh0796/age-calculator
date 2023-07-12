@@ -121,9 +121,8 @@ input {
     cursor:pointer;
 }
 
-.error {
+small.err, label.err {
     color: red;
-    border: 1px solid red;
 }
 
 .container-icon-arrow:hover {
