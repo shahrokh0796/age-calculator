@@ -5,13 +5,13 @@ const monthEl = document.querySelector("#month");
 const yearEl = document.querySelector("#year");
 const errorEl = document.querySelectorAll("small");
 const ageBtn = document.querySelector(".ageBtn");
-const displayAge = document.querySelectorAll("time");
+const time = document.querySelectorAll("time");
 
 
-console.log(label);
+console.log(time);
 
 const isRequired = (inputLength, amount) => inputLength.length < amount || inputLength.length > amount? false: true;   
-const isNumber = (input) => typeof input != 'number' ? false: true;
+const isNumber = (input) => typeof input === 'number' ? true: false;
 
 
 function displayError(message, element, label) {
@@ -20,34 +20,60 @@ function displayError(message, element, label) {
     label.classList.add("err");
 }
 function removeError(element, label) {
-    element.textContent = "";
-    element.classList.remove("err");
-    label.classList.remove("err");
+    if (element.classList != undefined && label.classList != undefined) {
+        element.classList.remove("err");
+        label.classList.remove("err");
+        element.textContent = "";
+    }
 }
 
+function displayAge(time) {
+    return time;
+}
 
 function calculateAge(){
     let inputD = dayEl.value, inputM = monthEl.value,
     inputY = yearEl.value;
-    const dOB = new Date(inputD,inputM,inputY).toLocaleDateString('en-GB');
+    const dob = new Date();
+    const currentYear = dob.getFullYear();
+    const currentMonth = dob.getMonth();
+    const currentDay = dob.getDate();
+    let monthAge;
+    let dayAge;
+    let yearAge;
+
+    if (parseInt(inputM)> 12 || Number.isNaN(parseInt(inputM))) {
+        displayError("Must be a valid month", errorEl[1], label[1]);
+     } else {
+        removeError(errorEl[1], label[1]);
+        monthAge = currentMonth - inputM;
+        time[1].textContent = Math.abs(monthAge);
+       }
+    if (parseInt(inputY) > currentYear || Number.isNaN(parseInt(inputY))) {
+        displayError("Must be in the past", errorEl[2], label[2]);
+     } else {
+        removeError(errorEl[2], label[2]);
+        yearAge = currentYear - inputY;
+        time[0].textContent = yearAge;
+       }
     
-    if(!isRequired(inputD, 2)) {
-        displayError("Enter a valid date", errorEl[0], label[0]);
+    if(!isRequired(inputD, 2) || inputD > 31) {
+        displayError("This field is required", errorEl[0], label[0]);
     } else {
         removeError(errorEl[0], label[0]);
-     }
-    
+        dayAge = currentDay - inputD;
+        time[2].textContent = dayAge;
+       }
     if(!isRequired(inputM, 2)) {
-        displayError("Enter a valid month", errorEl[1], label[1]);
-    } else {
-        removeError(errorEl[1], label[1]); 
-     }
-    
+        displayError("This field is required", errorEl[1], label[1]);
+    } 
      if(!isRequired(inputY, 4)) {
-        displayError("Enter a valid past", errorEl[2], label[2]);
+        displayError("This field is required", errorEl[2], label[2]);
     } else {
-        removeError(errorEl[2], label[2]); 
+      removeError(errorEl, label);
      }
+
+     console.log(parseInt(inputD));
 }
 
 ageBtn.addEventListener("click", calculateAge);
