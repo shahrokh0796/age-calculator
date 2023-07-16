@@ -42,38 +42,103 @@ function calculateAge(){
     let dayAge;
     let yearAge;
 
+    if(!isRequired(inputD, 2)) {
+        displayError("This field is required", errorEl[0], label[0]);
+        time[2].textContent = "--";
+    } else {
+        removeError(errorEl[0], label[0]);
+        dayAge = currentDay - inputD;
+        time[2].textContent = Math.abs(dayAge);
+    }
+
+    if(!isRequired(inputM, 2)) {
+        displayError("This field is required", errorEl[1], label[1]);
+        time[1].textContent = "--";
+    } else {}
+
+     if(!isRequired(inputY, 4)) {
+        displayError("This field is required", errorEl[2], label[2]);
+        time[0].textContent = "--";
+    } else {
+      removeError(errorEl, label);
+     }
+
     if (parseInt(inputM)> 12 || Number.isNaN(parseInt(inputM))) {
         displayError("Must be a valid month", errorEl[1], label[1]);
+        console.log("input month is greater than 12");
+        time[1].textContent = "--";
      } else {
         removeError(errorEl[1], label[1]);
         monthAge = currentMonth - inputM;
         time[1].textContent = Math.abs(monthAge);
        }
     if (parseInt(inputY) > currentYear || Number.isNaN(parseInt(inputY))) {
+        time[0].textContent = "--";
         displayError("Must be in the past", errorEl[2], label[2]);
      } else {
         removeError(errorEl[2], label[2]);
         yearAge = currentYear - inputY;
+        time[0].textContent = Math.abs(yearAge);
+       }
+     
+    if (inputM > currentMonth) {
+        yearAge--;
+        monthAge = 12+currentMonth - inputM;
         time[0].textContent = yearAge;
-       }
-    
-    if(!isRequired(inputD, 2) || inputD > 31) {
-        displayError("This field is required", errorEl[0], label[0]);
-    } else {
-        removeError(errorEl[0], label[0]);
-        dayAge = currentDay - inputD;
+        time[1].textContent = monthAge;
+    }
+     if (inputD > currentDay ) {
+        monthAge--;
+        dayAge = 31+currentDay - inputD;
         time[2].textContent = dayAge;
-       }
-    if(!isRequired(inputM, 2)) {
-        displayError("This field is required", errorEl[1], label[1]);
-    } 
-     if(!isRequired(inputY, 4)) {
-        displayError("This field is required", errorEl[2], label[2]);
-    } else {
-      removeError(errorEl, label);
-     }
+     } else {}
 
-     console.log(parseInt(inputD));
+    // if (parseInt(inputM)> 12 || Number.isNaN(parseInt(inputM))) {
+    //     displayError("Must be a valid month", errorEl[1], label[1]);
+    //  } else {
+    //     removeError(errorEl[1], label[1]);
+    //     monthAge = currentMonth - inputM;
+    //     time[1].textContent = Math.abs(monthAge);
+    //    }
+    // if (parseInt(inputY) > currentYear || Number.isNaN(parseInt(inputY))) {
+    //     displayError("Must be in the past", errorEl[2], label[2]);
+    //  } else {
+    //     removeError(errorEl[2], label[2]);
+    //     yearAge = currentYear - inputY;
+    //     time[0].textContent = Math.abs(yearAge);
+    //    }
+    
+    // if(!isRequired(inputD, 2) || inputD > 31) {
+    //     displayError("This field is required", errorEl[0], label[0]);
+    // } else {
+    //     removeError(errorEl[0], label[0]);
+    //     dayAge = currentDay - inputD;
+    //     time[2].textContent = Math.abs(dayAge);
+    //    }
+    // if(!isRequired(inputM, 2)) {
+    //     displayError("This field is required", errorEl[1], label[1]);
+    // } 
+    //  if(!isRequired(inputY, 4)) {
+    //     displayError("This field is required", errorEl[2], label[2]);
+    // } else {
+    //   removeError(errorEl, label);
+    //  }
+
+    // if (inputM > currentMonth) {
+    //     yearAge--;
+    //     monthAge = 12+currentMonth - inputM;
+    //     console.log(currentMonth, "C.M 88.js");
+    //     time[0].textContent = yearAge;
+    //     time[1].textContent = monthAge;
+    //     console.log(inputM, "<--inputY from 89 ageCalculation.js");
+    // }
+    //  if (inputD > currentDay ) {
+    //     monthAge--;
+    //     dayAge = 31+currentDay - inputD;
+    //     time[2].textContent = dayAge;
+    //  } else {}
+     
 }
 
 ageBtn.addEventListener("click", calculateAge);
+
