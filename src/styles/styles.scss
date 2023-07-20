@@ -56,18 +56,34 @@ input {
     border-end-end-radius: 5rem;
 }
 
-.margin-left-right {
-    
-}
 
-.form {
+.fieldset {
     display: flex;
     max-width: 400px;
     margin-block-end: 3rem;
+    border: none;
+
+    .grey-border {
+        border: 1px solid hsl(0, 1%, 44%);
+    }
+    .red-border {
+        border: 1px solid red;
+    }
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 
-.fieldset {
+.input-age {
     inline-size: 100%;
     display: flex;
     flex-direction: column;

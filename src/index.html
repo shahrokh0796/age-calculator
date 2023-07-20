@@ -19,27 +19,32 @@
   <main class="main">
     <div class="container">
       <form action="" class="form">
-        <div class="fieldset">
-          <label for="day">Day</label>
-          <input type="text" name="day" id="day" placeholder="DD">
-          <small></small>
-        </div>
-        <div class="fieldset margin-left-right">
-          <label for="month">Month</label>
-          <input type="text" name="month" id="month" placeholder="MM">
-          <small></small>
-        </div>
-        <div class="fieldset">
-          <label for="year">Year</label>
-          <input type="text" name="year" id="year" placeholder="YYYY">
-          <small></small>
+        <fieldset class="fieldset">
+          <legend class="sr-only">Please enter date of birth in the fields below</legend>
+          <div class="input-age">
+            <label for="day">Day</label>
+            <input type="text" name="day" id="day" placeholder="DD">
+            <small></small>
+          </div>
+          <div class="input-age margin-left-right">
+            <label for="month">Month</label>
+            <input type="text" name="month" id="month" placeholder="MM">
+            <small></small>
+          </div>
+          <div class="input-age">
+            <label for="year">Year</label>
+            <input type="text" name="year" id="year" placeholder="YYYY">
+            <small></small>
+          </div>
+        </fieldset>
+
+        <div class="hr-line">
+          <button class="container-icon-arrow ageBtn" type="submit">
+            <img src="./assets/images/icon-arrow.svg" alt="icon-arrow">
+          </button>
         </div>
       </form>
-      <div class="hr-line">
-        <button class="container-icon-arrow ageBtn">
-          <img src="./assets/images/icon-arrow.svg" alt="icon-arrow">
-      </button>
-      </div>
+
       <div class="container-output-age">
         <p>
           <time>- -</time>
