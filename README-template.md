@@ -110,6 +110,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I want to thank Grace Snow for her assistance when I asked for it on the frontend mentor Discord. She informed me about HTML semantics and suggested using dayjs for age validation. I will definitely use that when I need to create something related to dates in the future, but at the time I really wanted to use vanilla JS, so I did.
+Thank you.
 
 **Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
